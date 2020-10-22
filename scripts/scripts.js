@@ -16,7 +16,7 @@ let scissors = {
 };
 
 let chooseRange = [rock, paper, scissors];
-/*O JOGO ACABA QUANDO ALGUÉM COMPLETA 5 PONTOS; Cada round ganho corresponde á um ponto.*/
+
 
 let gameStatus = document.getElementById("status-label");
 let gameViewer = document.getElementById("viewer");
@@ -31,16 +31,16 @@ let gameWinPoints = 5;
 
 
 let playerStatus = {
-	container: document.getElementById("player-status"),
-	points: 0,
-	pointsDisplay: null
+  container: document.getElementById("player-status"),
+  points: 0,
+  pointsDisplay: null
 };
 playerStatus.pointsDisplay = playerStatus.container.querySelector(".user.points");
 
 let computerStatus = {
-	container: document.getElementById("computer-status"),
-	points: 0,
-	pointsDisplay: null
+  container: document.getElementById("computer-status"),
+  points: 0,
+  pointsDisplay: null
 };
 let lastComputerChoose;
 computerStatus.pointsDisplay = computerStatus.container.querySelector(".user.points");
@@ -85,7 +85,7 @@ function gameActionControl(event) {
   let playerChoose = toChooseObject(chooseName);
 
   if(playerChoose == null) 
-  	gameStatus.textContent = "Unknown choose, try again. Choose one option: Paper, Scissors or Rock.";
+    gameStatus.textContent = "Unknown choose, try again. Choose one option: Paper, Scissors or Rock.";
   
   toggleActionButtons();
 
@@ -96,19 +96,19 @@ function gameActionControl(event) {
 
   
   if(roundWinner == playerChoose) {
-  	addPoint(playerStatus);
-  	changeRoundViewer(playerStatus);
+    addPoint(playerStatus);
+    changeRoundViewer(playerStatus);
   } else if(roundWinner == computerChooseOption) {
-  	addPoint(computerStatus);
-  	changeRoundViewer(computerStatus);
+    addPoint(computerStatus);
+    changeRoundViewer(computerStatus);
   } else {
-  	gameStatus.textContent = "Stalemate. Press space or click in Next Round button.";
+    gameStatus.textContent = "Stalemate. Press space or click in Next Round button.";
   }
 
   if(playerStatus.points >= gameWinPoints) 
     setWinner(playerStatus);
   else if(computerStatus.points >= gameWinPoints)
-  	setWinner(computerStatus);
+    setWinner(computerStatus);
 
   setTimeout(() => {
     gameControlBtn.removeAttribute("disabled");
@@ -125,11 +125,11 @@ function addPoint(user) {
 
 function changeBodyStatus(winner) {
   if(winner == playerStatus) {
-  	document.body.classList.remove("player-lose-bg");
+    document.body.classList.remove("player-lose-bg");
     document.body.classList.add("player-won-bg");
   } else {
-  	document.body.classList.remove("player-won-bg");
-  	document.body.classList.add("player-lose-bg");
+    document.body.classList.remove("player-won-bg");
+    document.body.classList.add("player-lose-bg");
   }
 }
 
@@ -149,10 +149,10 @@ function computerChoose(smartComputer = false) {
 
   if(smartComputer && lastComputerChoose != null){
 
-  	let repeat = Math.random() > 0.5;
+    let repeat = Math.random() > 0.5;
 
-  	if(!repeat) 
-  	  computerChoose = chooseRange.filter(choose => choose != lastComputerChoose);
+    if(!repeat) 
+      computerChoose = chooseRange.filter(choose => choose != lastComputerChoose);
   }
 
   choose = Math.round(Math.random()*(computerChoose.length-1));
@@ -195,7 +195,7 @@ function changeRoundViewer(winner, reset = false) {
     removeDisabled(userIcon);
     removeDisabled(userPoints);
 
-  	document.body.classList.remove("player-won-bg");
+    document.body.classList.remove("player-won-bg");
     document.body.classList.remove("player-lose-bg");
     return;
   }
@@ -256,13 +256,12 @@ function toggleActionButtons(){
   })
 }
 
-gameControlBtn.addEventListener("click", gameRoundControl);
-
 window.addEventListener("keydown", event => {
   if(event.keyCode != 32) 
     return;
   return gameRoundControl();
 });
 
+gameControlBtn.addEventListener("click", gameRoundControl);
 gameActionsContainer.addEventListener("click", gameActionControl);
 gameResetBtn.addEventListener("click", resetGame);
