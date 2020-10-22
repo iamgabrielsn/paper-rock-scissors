@@ -1,1 +1,2 @@
-# paper-rock-scissors
+# Paper Rock Scissors
+A Odin Project Challenger
