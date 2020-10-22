@@ -1,0 +1,182 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+:root {
+ --player-won-bg: #24B88E;
+ --player-lose-bg: #DD5E39;
+}
+
+h1 {
+	font-family: sans-serif;
+	font-size: 28px;
+	margin: 10px 0;
+	padding: 10px 0;
+	color: black;
+	border-bottom: 1px solid gray;
+}
+.default-bg {
+	background: transparent !important;
+}
+
+.player-won-bg {
+	background-color: #24B88E;
+}
+
+.player-lose-bg {
+	background-color: #DD5E39;
+}
+
+main{
+	height: 98vh;
+	display: block;
+	max-width: 50%;
+	margin: 0 auto;
+	max-width: 50%;
+}
+
+.flex {
+	display: flex;
+}
+.flex.row {
+	flex-direction: row;
+}
+.flex.column {
+	flex-direction: column;
+}
+.flex.center{
+	justify-content: center;
+	align-items: center;
+}
+
+#viewer{
+	height: 250px;
+	background: url(../images/vs.svg) center no-repeat;
+	background-size: 50px
+}
+
+#viewer > div {
+	height: 100%;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: transparent;
+}
+
+#general-actions, #actions-container {
+	display: flex;
+	margin: 10px 0;
+}
+
+#actions-container > button{
+	min-width: 33.33%;
+	max-width: 33.33%;
+}
+
+#actions-container[disabled], #viewer *[disabled]{
+	display: none;
+}
+
+#general-actions > button {
+	min-width: 50%;
+	max-width: 50%;
+}
+
+.btn {
+	outline: none;
+	background-color: #2483D9;
+	border: 1px solid #1A838E;
+	font-size: 16px;
+	height: 45px;
+	border-radius: 5px;
+	color: whitesmoke;
+	cursor: pointer;
+}
+.btn:hover{
+	background-color: #28B68D;
+	border: none;
+}
+.btn:nth-child(2){
+	margin: 0 2px 0 2px;
+	border-radius: 0;
+}
+.btn:first-child {
+	border-radius: 5px 0 0 5px;
+}
+.btn:last-child {
+	margin-right: 0;
+	border-radius: 0 5px 5px 0;
+}
+
+#game-reset-btn {
+	background-color: rgba(36, 131, 217, 0.75);
+	border: none;
+}
+
+.btn[disabled]{
+	background-color: #B8BBC2 !important;
+	cursor: auto;
+	border: 10px solid #B8BBC2 !important;
+}
+
+
+
+#general-actions > .btn:not([disabled]):hover{
+	background-color: #DD9839;
+}
+
+#game-reset-btn:not([disabled]):hover{
+	background-color: rgba(36, 131, 217, 1) !important;
+}
+/* Round status*/
+
+.title-round-status {
+	font-size: 36px;
+	line-height: 2;
+}
+.label-round-status {
+	font-size: 16px;
+}
+.label-round-status, .title-round-status{
+	color: whitesmoke; 
+}
+
+#status-label{
+	color: black;
+}
+.win-game-status.icon {
+	font-size: 48px;
+	line-height: 2;
+}
+
+/*User style*/
+.user.points , .user.name {
+	line-height: 2;
+	color: black;
+}
+.user.name {
+	font-size: 24px;
+}
+.user.points {
+	font-size: 16px;
+}
+.icon {
+	font-size: 36px;
+}
+
+/* Page devices fix*/
+@media (max-width: 767px){
+	main {
+		max-width: 80%;
+	}
+	.title-round-status {
+		line-height: 1.5;
+		font-size: 20px;
+	}
+}
