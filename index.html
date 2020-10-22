@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Paper Rock Scissors</title>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet" type="text/css" href="styles/reset.css">
-	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+  <title>Paper Rock Scissors</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" href="styles/reset.css">
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body>
-	<main>
-		<h1>Paper Rock Scissors</h1>
-		<div id="viewer" class="flex row center">
-			<div id="player-status" class="flex column center">
-				<p class="title-round-status" disabled>You won</p> 
-				<p class="label-round-status" disabled>This round!</p>
-				<p class="user name">Player</p>
-				<p class="user icon">👤</p>
-				<p class="user points" disabled>0 points</p>
-			</div>
-			<div id="computer-status" class="flex column center">
-				<p class="title-round-status" disabled>Computer won</p> 
-				<p class="label-round-status" disabled>This round!</p>
-				<p class="user name">Computer</p>
-				<p class="user icon">🤖</p>
-				<p class="user points" disabled>0 points</p>
-			</div>
-			<p class="title-round-status" disabled>Computer won</p> 
-			<p class="label-round-status" disabled>The Game!</p>
-			<p class="win-game-status icon" disabled>🏆</p>
+  <main>
+    <h1>Paper Rock Scissors</h1>
 
-		</div>
-		<div id="status">
-			<p id="status-label">Press space or click in Start Game button.</p>
-		</div>
-		<div id="actions-container" disabled>
-			<button data-choose="Paper" class="btn choose">Paper</button>
-			<button data-choose="Rock" class="btn choose">Rock</button>
-			<button data-choose="Scissors" class="btn choose">Scissors</button>
-		</div>
-		<div id="general-actions">
-			<button class="btn" id="game-reset-btn" disabled>Reset</button>
-			<button class="btn" id="game-control-btn">Start Game</button>
-		</div>
-	</main>
+    <div id="viewer" class="flex row center">
 
-	<script type="text/javascript" src="scripts/scripts.js"></script>
+      <div id="player-status" class="flex column center">
+        <p class="title-round-status" disabled>You won</p> 
+        <p class="label-round-status" disabled>This round!</p>
+        <p class="user name">Player</p>
+        <p class="user icon">👤</p>
+        <p class="user points" disabled>0 points</p>
+      </div>
+      
+      <div id="computer-status" class="flex column center">
+        <p class="title-round-status" disabled>Computer won</p> 
+        <p class="label-round-status" disabled>This round!</p>
+        <p class="user name">Computer</p>
+        <p class="user icon">🤖</p>
+        <p class="user points" disabled>0 points</p>
+      </div>
+      <p class="title-round-status" disabled>Computer won</p> 
+      <p class="label-round-status" disabled>The Game!</p>
+      <p class="win-game-status icon" disabled>🏆</p>
+
+    </div>
+
+    <div id="status">
+      <p id="status-label">Press space or click in Start Game button.</p>
+    </div>
+
+    <div id="actions-container" disabled>
+      <button data-choose="Paper" class="btn choose">Paper</button>
+      <button data-choose="Rock" class="btn choose">Rock</button>
+      <button data-choose="Scissors" class="btn choose">Scissors</button>
+    </div>
+
+    <div id="general-actions">
+      <button class="btn" id="game-reset-btn" disabled>Reset</button>
+      <button class="btn" id="game-control-btn">Start Game</button>
+    </div>
+
+  </main>
+
+  <script type="text/javascript" src="scripts/scripts.js"></script>
 </body>
 </html>
