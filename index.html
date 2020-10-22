@@ -3,150 +3,47 @@
 <head>
 	<title>Paper Rock Scissors</title>
 	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="styles/reset.css">
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body>
+	<main>
+		<h1>Paper Rock Scissors</h1>
+		<div id="viewer" class="flex row center">
+			<div id="player-status" class="flex column center">
+				<p class="title-round-status" disabled>You won</p> 
+				<p class="label-round-status" disabled>This round!</p>
+				<p class="user name">Player</p>
+				<p class="user icon">👤</p>
+				<p class="user points" disabled>0 points</p>
+			</div>
+			<div id="computer-status" class="flex column center">
+				<p class="title-round-status" disabled>Computer won</p> 
+				<p class="label-round-status" disabled>This round!</p>
+				<p class="user name">Computer</p>
+				<p class="user icon">🤖</p>
+				<p class="user points" disabled>0 points</p>
+			</div>
+			<p class="title-round-status" disabled>Computer won</p> 
+			<p class="label-round-status" disabled>The Game!</p>
+			<p class="win-game-status icon" disabled>🏆</p>
 
-<script>
+		</div>
+		<div id="status">
+			<p id="status-label">Press space or click in Start Game button.</p>
+		</div>
+		<div id="actions-container" disabled>
+			<button data-choose="Paper" class="btn choose">Paper</button>
+			<button data-choose="Rock" class="btn choose">Rock</button>
+			<button data-choose="Scissors" class="btn choose">Scissors</button>
+		</div>
+		<div id="general-actions">
+			<button class="btn" id="game-reset-btn" disabled>Reset</button>
+			<button class="btn" id="game-control-btn">Start Game</button>
+		</div>
+	</main>
 
-let rock = {
-	name: "ROCK",
-	wins: ["SCISSORS"],
-	loses: ["PAPER"]
-};
-
-let paper = {
-	name: "PAPER",
-    wins: ["ROCK"], 
-    loses: ["SCISSORS"]
-};
-
-let scissors = {
-	name: "SCISSORS",
-	wins: ["PAPER"],
-    loses: ["ROCK"]
-};
-
-/* O bloco switch tem um perímetro de 0 ~ 3
-Uma opção é selecionada através do valor randomico gerado.
-Se for 1, será a pedra.
-Se for 2, será o papel.
-Se for 3, será a tesoura.
-Se for zero ou qualquer outro número, será computado novamente(refatorando).
-*/
-function computerPlay(){
-	let select = Math.round(Math.random()*10);
-	if(select >= 0 && select <= 4) {
-		return rock;
-	}else if (select > 4 && select <= 6) {
-		return paper
-	}else{
-		return scissors;
-	}
-}
-
-function calcSelection(playerSelection, computerSelection){
-	if(playerSelection.wins.includes(computerSelection.name)){
-		return playerSelection;
-	}else if(playerSelection.loses.includes(computerSelection.name)){
-		return computerSelection;
-	}else if(playerSelection == computerSelection){
-		return "EMPATE";
-	}else{
-		return "VALUE NOT FOUND";
-	}
-}
-
-function toSelection(name){
-	name = name.toUpperCase();
-
-	switch(name){
-		case "ROCK":
-		 return rock;
-		case "PAPER":
-		 return paper;
-		case "SCISSORS":
-		 return scissors;
-		default:
-		  return null;
-	}
-
-}
-
-function playRound(playerSelection, computerSelection, outputResult = false){
-	playerSelection = typeof playerSelection != "object" ? toSelection(playerSelection) : playerSelection;
-	if(playerSelection == null)
-		return "Alguém não sabe brincar de Papel Pedra ou Tesoura... | Falha ao identificar.";
-	let result = calcSelection(playerSelection, computerSelection);
-
-
-	if(!outputResult){
-		return result;
-	}
-
-	console.log("Disputa entre", "(VOCÊ)", playerSelection.name, "X", "(COMPUTADOR)", computerSelection.name);
-
-	switch(result){
-		case playerSelection:
-		  return "Você ganhou";
-		case computerSelection:
-		  return "Você perdeu";
-		case "EMPATE":
-		  return "Vocês empataram";
-		case "VALUE NOT FOUND":
-		  return "Alguém não sabe brincar de Papel Pedra ou Tesoura... | Falha ao identificar.";
-		default:
-		  return "Nothing"+result.name;
-	}
-}
-
-function game(points = 5){
-	console.log("INICIANDO O JOGO");
-	let playerPoints = 0;
-	let computerPoints = 0;
-
-	while(true){
-		
-		if(playerPoints >= 5 ){
-		  alert("Você ganhou!");
-		  break;
-		}else if(computerPoints >= 5 ){
-		  alert("Você perdeu :(");
-		  break;
-		}
-
-		let choose = toSelection(prompt("Escolha um valor: PAPER ROCK ou SCISSORS\nCOMPUTADOR:"+computerPoints+" X Player: "+playerPoints));
-
-		if(choose == undefined){
-			alert("Você não escolheu um número válido, tente novamente:");
-			continue;
-		}
-
-		let computerChoose = computerPlay();
-
-		let result = playRound(choose, computerChoose);
-
-		switch(result){
-		  case choose:
-		    ++playerPoints;
-		    alert(`O computador escolheu ${computerChoose.name} e você escolheu ${choose.name}. \nVocê ganhou este round! Inicie o próximo round`);
-		    continue;
-		  case "EMPATE":
-		    alert("Vocês empataram neste round.");
-		    continue;
-		  case "VALUE NOT FOUND":
-		  	alert("Você não escolheu um número válido, tente novamente:");
-		  	continue;
-		  default:
-		    ++computerPoints;
-		    alert(`O computador escolheu ${computerChoose.name} e você escolheu ${choose.name}. \nVocê perdeu este round :(. Inicie o proximo round`);
-		    continue;
-		}
-
-	}
-}
-game();
-
-//console.log(playRound("rock", computerPlay()))
-</script>
+	<script type="text/javascript" src="scripts/scripts.js"></script>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
 </html>
