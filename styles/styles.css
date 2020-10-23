@@ -27,11 +27,11 @@ h1 {
 }
 
 .player-won-bg {
-  background-color: #24B88E;
+  background-color: var(--player-won-bg);
 }
 
 .player-lose-bg {
-  background-color: #DD5E39;
+  background-color: var(--player-lose-bg);
 }
 
 main{
