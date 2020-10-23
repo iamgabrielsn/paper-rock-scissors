@@ -3,7 +3,8 @@
 }
 
 body {
-  font-size: 16px;
+  font-size: calc(1rem + ((1vw - 0.01px) * 1.6675));
+  min-height: 0vw;
   font-family: sans-serif;
 }
 
@@ -14,12 +15,13 @@ body {
 
 h1 {
   font-family: sans-serif;
-  font-size: 28px;
+  font-size: 2.5rem;
   margin: 10px 0;
   padding: 10px 0;
   color: black;
   border-bottom: 1px solid gray;
 }
+
 .default-bg {
   background: transparent !important;
 }
@@ -92,7 +94,7 @@ main{
   outline: none;
   background-color: #2483D9;
   border: 1px solid #1A838E;
-  font-size: 16px;
+  font-size: 1rem;
   height: 45px;
   border-radius: 5px;
   color: whitesmoke;
@@ -125,8 +127,6 @@ main{
   border: 10px solid #B8BBC2 !important;
 }
 
-
-
 #general-actions > .btn:not([disabled]):hover{
   background-color: #DD9839;
 }
@@ -137,21 +137,24 @@ main{
 /* Round status*/
 
 .title-round-status {
-  font-size: 36px;
+  font-size: 1.3rem;
   line-height: 2;
 }
+
 .label-round-status {
-  font-size: 16px;
+  font-size: 1rem;
 }
+
 .label-round-status, .title-round-status{
   color: whitesmoke; 
 }
 
 #status-label{
   color: black;
+  font-size: 1rem;
 }
 .win-game-status.icon {
-  font-size: 48px;
+  font-size: 2.6rem;
   line-height: 2;
 }
 
@@ -161,13 +164,13 @@ main{
   color: black;
 }
 .user.name {
-  font-size: 24px;
+  font-size: 1.2rem;
 }
 .user.points {
-  font-size: 16px;
+  font-size: 1rem;
 }
 .icon {
-  font-size: 36px;
+  font-size: 2rem;
 }
 
 /* Page devices fix*/
@@ -177,6 +180,11 @@ main{
   }
   .title-round-status {
     line-height: 1.5;
-    font-size: 20px;
+  }
+}
+
+@media (min-width: 3000px){
+  main {
+    max-width: 40%;
   }
 }
