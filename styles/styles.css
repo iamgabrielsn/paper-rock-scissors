@@ -37,9 +37,9 @@ h1 {
 main{
   height: 98vh;
   display: block;
-  max-width: 50%;
+  width: 50%;
+  min-height: 0vw;
   margin: 0 auto;
-  max-width: 50%;
 }
 
 .flex {
@@ -175,9 +175,11 @@ main{
 
 /* Page devices fix*/
 @media (max-width: 767px){
-  main {
-    max-width: 80%;
+
+   main {
+    width: 90%;
   }
+  
   .title-round-status {
     line-height: 1.5;
   }
@@ -185,6 +187,6 @@ main{
 
 @media (min-width: 3000px){
   main {
-    max-width: 40%;
+    width: 35%;
   }
 }
